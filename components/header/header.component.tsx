@@ -1,4 +1,4 @@
-import { BellIcon, SearchIcon, UserCircleIcon } from '@heroicons/react/solid'
+import { BellIcon, SearchIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -44,7 +44,11 @@ function Header() {
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="w-6 h-6" />
         <Link href="/account">
-          <UserCircleIcon className="w-6 h-6 rounded cursor-pointer" />
+          <img
+            src="https://rb.gy/g1pwyx"
+            alt=""
+            className="rounded cursor-pointer"
+          />
         </Link>
       </div>
     </header>
