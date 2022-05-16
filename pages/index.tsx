@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Banner from '../components/banner/banner.component'
 import Header from '../components/header/header.component'
 import { Movie } from '../typings'
 import requests from '../utils/request'
@@ -32,7 +33,7 @@ const Home = ({
       </Head>
       <Header />
       <main>
-        {/* Banner */}
+        <Banner netflixOriginals={netflixOriginals} />
         <section>
           {/* Row */}
           {/* Row */}
@@ -72,6 +73,8 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ])
+
+  console.log(netflixOriginals)
 
   return {
     props: {
