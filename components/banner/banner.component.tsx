@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { baseURL } from '../../constants/movie'
 import { Movie } from '../../typings'
 
 interface Props {
@@ -5,7 +8,25 @@ interface Props {
 }
 
 function Banner({ netflixOriginals }: Props) {
-  return <div>Banner</div>
+  const [movie, setMovie] = useState<Movie | null>(null)
+
+  useEffect(() => {
+    setMovie(
+      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
+    )
+  }, [netflixOriginals])
+
+  return (
+    <div>
+      <div className="absolute top-0 left-0 h-[95vh] w-screen">
+        <Image
+          src={`${baseURL}${movie?.backdrop_path || movie?.poster_path}`}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+    </div>
+  )
 }
 
 export default Banner
